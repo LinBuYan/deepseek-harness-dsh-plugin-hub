@@ -1,9 +1,14 @@
 {
   "name": "deepseek-harness-dsh-plugin-hub",
   "version": "1.0.0",
-  "description": "DSH 插件中心：右下角悬浮面板，聚合 GitHub 生态扫描、社区插件热榜与已装插件管理（风险检查 / 一键安装 / 安装建议）",
+  "description": "DeepSeek Harness（DSH）插件中心：右下角悬浮面板，聚合 GitHub 生态扫描、社区插件热榜与已装插件管理，内置五维风险检查与一键安装。",
   "type": "module",
   "main": "lib/index.js",
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE"
+  ],
   "exports": {
     ".": {
       "default": "./lib/index.js"
@@ -19,5 +24,22 @@
       "inject": []
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LinBuYan/deepseek-harness-dsh-plugin-hub.git"
+  },
+  "homepage": "https://github.com/LinBuYan/deepseek-harness-dsh-plugin-hub#readme",
+  "bugs": {
+    "url": "https://github.com/LinBuYan/deepseek-harness-dsh-plugin-hub/issues"
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "plugin",
+    "harness",
+    "agent"
+  ],
+  "author": "LinBuYan",
   "license": "MIT"
 }
