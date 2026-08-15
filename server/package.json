@@ -1,0 +1,17 @@
+{
+  "name": "deepseek-harness-dsh-plugin-hub-server",
+  "version": "1.0.0",
+  "description": "DSH 插件中心服务端：提供 /api/gh-watch/* 接口（插件目录、安装/卸载、启停、整体情况、exa 搜索、更新检查、MCP 管理）",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "license": "MIT"
+}

@@ -70,7 +70,9 @@ dsh plugin --profile web add deepseek-harness-dsh-plugin-hub
 
 ## 配套服务端（可选）
 
-「一键安装」「已装插件」「安装建议」「停止服务」需本机同源服务端接口：
+「一键安装」「已装插件」「安装建议」「停止服务」需本机同源服务端接口，完整实现见本仓库 [`server/`](./server) 目录。
+
+### 接口
 
 ```
 GET  /api/gh-watch/overview    读取整体情况
@@ -78,11 +80,26 @@ POST /api/gh-watch/install     一键安装
 GET  /api/gh-watch/installed   已装列表
 POST /api/gh-watch/toggle      启用 / 禁用
 POST /api/gh-watch/uninstall   卸载
-POST /api/gh-watch/restart     重启
-POST /api/gh-watch/stop        停止
+POST /api/gh-watch/websearch   exa 搜索
+GET  /api/gh-watch/updates     检查更新
+GET  /api/gh-watch/mcp         MCP 列表
+POST /api/gh-watch/mcp/toggle  MCP 启停
+POST /api/gh-watch/mcp/add     添加 MCP
+POST /api/gh-watch/restart     重启（可选）
+POST /api/gh-watch/stop        停止（可选，危险：会杀掉 web 端口进程）
 ```
 
-未装服务端时这几个功能会提示「服务端插件需重启 dsh web 后生效」，其余（扫描 / 热榜 / 风险检查 / 复制命令）不受影响。服务端与个人 `dsh-overview.yaml` 强耦合，属个人定制，暂未开源；有需要可自行实现上述同源端点。
+### 环境变量
+
+| 变量 | 默认 | 说明 |
+| --- | --- | --- |
+| `DSH_HOME` | `~/.dsh` | dsh 主目录 |
+| `DSH_PROFILE` | `web` | 目标 profile |
+| `DSH_WEB_PORT` | `8093` | web 端口（重启/停止用） |
+| `DSH_RESTART_SCRIPT` | `<DSH_HOME>/restart-dsh-web.cmd` | 重启脚本路径 |
+| `EXA_API_KEY` | — | exa 搜索密钥（可选，用于 websearch） |
+
+未装服务端时，一键安装/已装插件/安装建议等功能会提示「服务端插件需重启 dsh web 后生效」，其余（扫描 / 热榜 / 风险检查 / 复制命令）不受影响。
 
 ## 参与协作
 
